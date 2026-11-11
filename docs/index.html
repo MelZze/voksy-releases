@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="fr" data-theme="default">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voksy · Le launcher Roblox qui a du style</title>
+  <meta name="description" content="Voksy installe et lance Roblox pour toi, s'ouvre par-dessus ta partie avec Alt+T, te laisse discuter avec tes amis sans quitter le jeu et se met à jour tout seul. Gratuit, pour Windows 10 et 11." />
+  <meta name="theme-color" content="#0e1116" />
+  <meta property="og:title" content="Voksy · Le launcher Roblox qui a du style" />
+  <meta property="og:description" content="Lance Roblox en un clic, ouvre Voksy par-dessus ta partie avec Alt+T, rejoins tes amis en un clic, choisis tes couleurs. Gratuit pour Windows." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/icon.png" />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <link rel="preload" href="fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas class="trail" id="trail" aria-hidden="true"></canvas>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Voksy, retour en haut">
+      <svg class="logo" viewBox="100 240 824 544" aria-hidden="true"><polygon points="108,248 330,248 523,583 413,775" /><polygon points="696,248 916,248 611,775 488,775 592,596 543,511" /></svg>
+      <span>Voksy</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="#raccourci">Alt+T</a>
+      <a href="#themes">Thèmes</a>
+      <a href="#nouveautes">Nouveautés</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="motion-toggle" type="button" aria-pressed="true" title="Couper les animations">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm" data-download href="https://github.com/MelZze/voksy-releases/releases">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+        <span>Télécharger</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ Accueil ============ -->
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="aurora"><i class="a1" data-depth="0.8"></i><i class="a2" data-depth="1.4"></i><i class="a3" data-depth="0.5"></i></div>
+        <div class="beam"></div>
+        <div class="dots" data-depth="0.25"></div>
+        <div class="sparks" id="sparks"></div>
+        <div class="grain"></div>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="kicker"><i class="dot"></i>Launcher Roblox gratuit pour Windows</span>
+          <h1>
+            <span class="line"><span>Joue plus vite.</span></span>
+            <span class="line"><span class="hl">Joue avec style.</span></span>
+          </h1>
+          <p class="lead">Voksy installe et lance Roblox pour toi, garde tes jeux à portée de main et s'ouvre par-dessus ta partie avec <kbd>Alt</kbd>+<kbd>T</kbd>. Discute avec tes amis sans quitter le jeu et rejoins-les en un clic. Léger, rapide, aux couleurs que tu choisis.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary btn-xl magnetic" data-download href="https://github.com/MelZze/voksy-releases/releases">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+              <span class="btn-text"><b>Télécharger Voksy</b><small data-release-meta>Windows 10 et 11 · Gratuit</small></span>
+            </a>
+            <a class="btn btn-ghost btn-xl" href="#fonctionnalites">Voir ce qu'il sait faire</a>
+          </div>
+          <p class="platform-note" id="platform-note" hidden>Voksy est disponible sur Windows 10 et 11. Ouvre ce site depuis ton PC pour l'installer.</p>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="halo"></div>
+          <div class="v3d" id="v3d"><div class="v3d-inner" id="v3d-inner"></div></div>
+          <div class="v3d-shadow"></div>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#apercu" aria-label="Découvrir Voksy"><span></span></a>
+    </section>
+
+    <!-- Bandeau défilant -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" data-words="Lancement en 1 clic|Alt+T en pleine partie|Chat rapide Alt+C|Rejoindre un ami en 1 clic|Profils et badges|Galerie de captures|Alertes de mise à jour|Raccourcis clavier|Ton propre thème|Musique de fond|FPS débloqués|Statut Discord|Mises à jour automatiques"></div>
+    </div>
+
+    <!-- ============ Aperçu de l'app ============ -->
+    <section class="showcase" id="apercu">
+      <div class="section-head reveal">
+        <span class="eyebrow">L'appli</span>
+        <h2>Tout Roblox, <span class="hl">rangé proprement.</span></h2>
+        <p>Tes jeux, tes favoris, tes amis et tes réglages dans une seule fenêtre, pensée pour aller vite.</p>
+      </div>
+
+      <div class="mockup-stage">
+        <div class="mockup" id="mockup">
+          <div class="mk-titlebar">
+            <svg class="logo" viewBox="100 240 824 544" aria-hidden="true"><polygon points="108,248 330,248 523,583 413,775" /><polygon points="696,248 916,248 611,775 488,775 592,596 543,511" /></svg>
+            <b>Voksy</b>
+            <span class="mk-search">Rechercher un jeu<kbd>Ctrl K</kbd></span>
+            <span class="mk-win"><i></i><i></i><i></i></span>
+          </div>
+          <div class="mk-body">
+            <aside class="mk-side">
+              <span class="mk-indicator" id="mk-indicator"></span>
+              <span class="mk-item" data-i="0"><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v9h-5v-6H9v6H4z"/></svg>Accueil</span>
+              <span class="mk-item" data-i="1"><svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Favoris</span>
+              <span class="mk-item" data-i="2"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Statistiques</span>
+              <span class="mk-item" data-i="3"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.6"/><path d="m21 16-5-5-8 8"/></svg>Captures</span>
+              <span class="mk-label">Communauté</span>
+              <span class="mk-item" data-i="4"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/></svg>Amis</span>
+              <span class="mk-label">Personnaliser</span>
+              <span class="mk-item" data-i="5"><svg viewBox="0 0 24 24"><path d="M15 4V2M15 10V8M11 6h2M17 6h2M4 20 14 10"/></svg>Mods</span>
+              <span class="mk-item" data-i="6"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Réglages</span>
+              <span class="mk-status"><i></i>Prêt à jouer</span>
+            </aside>
+            <div class="mk-content">
+              <div class="mk-hero">
+                <div class="mk-hero-art" data-scene="hero"></div>
+                <div class="mk-hero-copy">
+                  <span class="mk-kicker">Reprendre</span>
+                  <b>Tes jeux</b>
+                  <span class="mk-play" id="mk-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Jouer</span>
+                </div>
+              </div>
+              <div class="mk-row-title">Récents</div>
+              <div class="mk-cards" id="mk-cards"></div>
+            </div>
+          </div>
+          <div class="mk-cursor" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><path d="M6.5 5.5 26 12.2 18.2 18 13.6 26Z" /></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Fonctionnalités ============ -->
+    <section class="features" id="fonctionnalites">
+      <div class="section-head reveal">
+        <span class="eyebrow">Fonctionnalités</span>
+        <h2>Tout ce qu'il manquait <span class="hl">à Roblox.</span></h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature reveal" style="--i:0">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" class="fill"/></svg></span>
+          <h3>Un clic, tu joues</h3>
+          <p>Voksy installe et met à jour Roblox lui-même. Choisis un jeu, clique sur Jouer, c'est parti.</p>
+        </article>
+        <article class="feature reveal" style="--i:1">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10"/></svg></span>
+          <h3>Alt+T en pleine partie</h3>
+          <p>Ouvre Voksy par-dessus le jeu pour voir tes amis ou changer un réglage. Le même raccourci te ramène en jeu.</p>
+        </article>
+        <article class="feature reveal" style="--i:2">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14.5h4"/></svg></span>
+          <h3>Chat rapide Alt+C</h3>
+          <p>Un petit panneau sur le côté du jeu pour répondre à tes amis, et des notifications en jeu quand on t'écrit.</p>
+        </article>
+        <article class="feature reveal" style="--i:3">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/></svg></span>
+          <h3>Amis Voksy</h3>
+          <p>Ajoute tes amis par leur pseudo Roblox, discute en groupe, vois à quoi ils jouent et rejoins leur serveur en un clic.</p>
+        </article>
+        <article class="feature reveal" style="--i:4">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 17.5a4 4 0 0 1 7 0M15 10h3M15 13.5h3"/></svg></span>
+          <h3>Un profil à ton image</h3>
+          <p>Bannière, cadre d'avatar, statut, jeu favori, plaque nominative animée et badges Vérifié, Premium ou Pionnier.</p>
+        </article>
+        <article class="feature reveal" style="--i:5">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.6"/><path d="m21 16-5-5-8 8"/></svg></span>
+          <h3>Galerie de captures</h3>
+          <p>Toutes tes captures Roblox classées par jeu et par jour, avec une visionneuse, et une copie de secours dans Images.</p>
+        </article>
+        <article class="feature reveal" style="--i:6">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 1 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9z"/><path d="M10 20a2.2 2.2 0 0 0 4 0"/></svg></span>
+          <h3>Alertes de mise à jour</h3>
+          <p>Voksy surveille tes jeux favoris et te prévient dès qu'ils sont mis à jour, même pendant une partie.</p>
+        </article>
+        <article class="feature reveal" style="--i:7">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg></span>
+          <h3>Raccourcis clavier</h3>
+          <p>Rejoins ton dernier serveur avec Ctrl+Alt+R, affiche ou cache Voksy avec Ctrl+Alt+V, partout dans Windows.</p>
+        </article>
+        <article class="feature reveal" style="--i:8">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+          <h3>Tes statistiques</h3>
+          <p>Temps de jeu par jeu et par jour, sessions, jeux préférés. Tout reste sur ton PC.</p>
+        </article>
+        <article class="feature reveal" style="--i:9">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><path d="M12 14l4-4"/><path d="M3.5 18a9 9 0 1 1 17 0"/></svg></span>
+          <h3>FPS débloqués</h3>
+          <p>Limite de FPS, moteur graphique, anticrénelage : des profils prêts à l'emploi, et un profil par jeu si tu veux.</p>
+        </article>
+        <article class="feature reveal" style="--i:10">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1.1.9-2 2-2h2.4A4.6 4.6 0 0 0 21 9.8C21 6 17 3 12 3z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15.5" cy="7.5" r="1"/></svg></span>
+          <h3>Ton ambiance</h3>
+          <p>6 thèmes ou le tien, avec ta propre image de fond et un code à partager. Et une musique de fond, si tu veux.</p>
+        </article>
+        <article class="feature reveal" style="--i:11">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><path d="M15 4V2M15 10V8M11 6h2M17 6h2M4 20 14 10"/></svg></span>
+          <h3>Mods et plugins</h3>
+          <p>Curseur, son de mort, police, overlay FPS et ping, mode streamer, multi-instance et statut Discord.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ Démo Alt+T ============ -->
+    <section class="alt-demo" id="raccourci">
+      <div class="alt-copy reveal">
+        <span class="eyebrow">Raccourci en jeu</span>
+        <h2>Ta partie continue. <span class="hl">Voksy passe devant.</span></h2>
+        <p>Pendant que tu joues, <kbd>Alt</kbd>+<kbd>T</kbd> affiche Voksy au-dessus de Roblox : amis, serveurs, réglages. Pour juste répondre à un message, <kbd>Alt</kbd>+<kbd>C</kbd> ouvre le chat rapide sur le côté. Rien n'est injecté dans le jeu, et les raccourcis se changent dans les réglages.</p>
+        <div class="keys" id="keys" role="button" tabindex="0" aria-label="Essayer Alt+T">
+          <span class="key key-wide">Alt</span><span class="plus">+</span><span class="key">T</span>
+        </div>
+        <p class="try">Essaie : appuie sur <b>Alt+T</b> ou clique sur les touches.</p>
+      </div>
+      <div class="game reveal" id="game" style="--i:1">
+        <div class="game-sky"></div>
+        <div class="game-scene" data-scene="game"></div>
+        <div class="game-hud"><span class="hud-chip"><i class="dot"></i>En partie</span><span class="hud-chip">240 FPS · 38 ms</span></div>
+        <div class="game-toast" aria-hidden="true">
+          <span class="av" style="--h:220">N</span>
+          <span><b>Nova</b><small>On lance Obby Néon, tu viens ?</small></span>
+          <kbd>Alt+C</kbd>
+        </div>
+        <div class="overlay-panel" aria-hidden="true">
+          <div class="op-title">
+            <svg class="logo" viewBox="100 240 824 544"><polygon points="108,248 330,248 523,583 413,775" /><polygon points="696,248 916,248 611,775 488,775 592,596 543,511" /></svg>
+            <b>Voksy</b><span class="op-chip">Par-dessus le jeu</span>
+          </div>
+          <div class="op-section">Amis en ligne</div>
+          <div class="op-friend"><span class="av" style="--h:220">N</span><span><b>Nova</b><small>En jeu · Obby Néon</small></span><span class="op-join">Rejoindre</span></div>
+          <div class="op-friend"><span class="av" style="--h:150">P</span><span><b>Pixel</b><small>En jeu · Course Pixel</small></span><span class="op-join">Rejoindre</span></div>
+          <div class="op-friend"><span class="av" style="--h:20">T</span><span><b>Tom</b><small>En ligne</small></span><span class="op-join ghost">Inviter</span></div>
+          <div class="op-server"><span>Ton serveur</span><b>12/20 joueurs · 38 ms</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Thèmes ============ -->
+    <section class="themes" id="themes">
+      <div class="section-head reveal">
+        <span class="eyebrow">Thèmes</span>
+        <h2>Ton Voksy, <span class="hl">tes couleurs.</span></h2>
+        <p>Six ambiances, du bleu Voksy au rose Arcade. Clique pour essayer : tout le site change, comme dans l'appli. Et si aucune ne te va, crée la tienne dans Voksy : accent, fond, image et arrondis, avec un code à partager à tes amis.</p>
+      </div>
+      <div class="theme-grid reveal" id="theme-grid" style="--i:1">
+        <button class="theme-chip" data-theme-pick="default" type="button"><span class="sw" style="--a:#335cff;--b:#161b22;--c:#f2f0eb"></span>Voksy</button>
+        <button class="theme-chip" data-theme-pick="glacier" type="button"><span class="sw" style="--a:#086683;--b:#f9fcff;--c:#142c44"></span>Glacier</button>
+        <button class="theme-chip" data-theme-pick="matcha" type="button"><span class="sw" style="--a:#b0d989;--b:#1a2921;--c:#edf7e8"></span>Matcha</button>
+        <button class="theme-chip" data-theme-pick="terre-cuite" type="button"><span class="sw" style="--a:#a33e27;--b:#fff5e9;--c:#39211f"></span>Terre cuite</button>
+        <button class="theme-chip" data-theme-pick="arcade" type="button"><span class="sw" style="--a:#fc79d6;--b:#221033;--c:#fff1ff"></span>Arcade</button>
+        <button class="theme-chip" data-theme-pick="graphite" type="button"><span class="sw" style="--a:#dedede;--b:#212121;--c:#f6f6f6"></span>Graphite</button>
+      </div>
+    </section>
+
+    <!-- ============ Chiffres ============ -->
+    <section class="numbers">
+      <div class="num reveal" style="--i:0"><b data-count="1">1</b><span>clic pour lancer un jeu</span></div>
+      <div class="num reveal" style="--i:1"><b data-count="6">6</b><span>thèmes, et le tien</span></div>
+      <div class="num reveal" style="--i:2"><b>Alt+T</b><span>par-dessus ta partie</span></div>
+      <div class="num reveal" style="--i:3"><b data-count="0" data-from="49" data-suffix=" €">0 €</b><span>gratuit, pour de vrai</span></div>
+    </section>
+
+    <!-- ============ Nouveautés ============ -->
+    <section class="news" id="nouveautes">
+      <div class="section-head reveal">
+        <span class="eyebrow">Nouveautés</span>
+        <h2>Ça bouge <span class="hl">souvent.</span></h2>
+        <p>Voksy se met à jour tout seul : tu profites de chaque nouveauté sans rien réinstaller.</p>
+      </div>
+      <div class="news-list" id="news-list"></div>
+      <a class="news-all" href="https://github.com/MelZze/voksy-releases/releases" target="_blank" rel="noopener">Toutes les versions</a>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq">
+      <div class="section-head reveal">
+        <span class="eyebrow">Questions</span>
+        <h2>Bon à <span class="hl">savoir.</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="reveal" style="--i:0">
+          <summary>Voksy est-il gratuit ?</summary>
+          <div class="faq-body"><p>Oui, entièrement. Pas d'abonnement, pas de pub.</p></div>
+        </details>
+        <details class="reveal" style="--i:1">
+          <summary>Voksy me demande-t-il mon mot de passe Roblox ?</summary>
+          <div class="faq-body"><p>Non, jamais. Voksy ne demande ni ton mot de passe ni tes cookies Roblox. Pour les amis Voksy, la connexion passe par la page officielle de Roblox.</p></div>
+        </details>
+        <details class="reveal" style="--i:2">
+          <summary>Comment ajouter mes amis ?</summary>
+          <div class="faq-body"><p>Dans Voksy, ouvre Amis et connecte-toi avec Roblox (page officielle). Tu peux ensuite ajouter un ami par son pseudo Roblox. Le chat Voksy relie les joueurs qui utilisent Voksy : ce n'est pas le chat de Roblox.</p></div>
+        </details>
+        <details class="reveal" style="--i:2">
+          <summary>Où sont mes captures d'écran Roblox ?</summary>
+          <div class="faq-body"><p>Roblox les range dans un dossier temporaire. Avec le plugin Galerie, Voksy les affiche classées par jeu et peut en garder une copie dans Images › Roblox, pour ne jamais les perdre.</p></div>
+        </details>
+        <details class="reveal" style="--i:2">
+          <summary>Windows affiche un avertissement à l'installation, c'est normal ?</summary>
+          <div class="faq-body"><p>Oui : Voksy n'est pas encore signé numériquement, alors Windows SmartScreen te prévient. Clique sur « Informations complémentaires » puis sur « Exécuter quand même ».</p></div>
+        </details>
+        <details class="reveal" style="--i:3">
+          <summary>Voksy modifie-t-il Roblox ?</summary>
+          <div class="faq-body"><p>Voksy lance le client officiel de Roblox, sans rien injecter dans le jeu. Le raccourci Alt+T affiche simplement la fenêtre Voksy au premier plan.</p></div>
+        </details>
+        <details class="reveal" style="--i:4">
+          <summary>Comment mettre à jour Voksy ?</summary>
+          <div class="faq-body"><p>Tu n'as rien à faire : Voksy vérifie les nouvelles versions et les télécharge en arrière-plan. Un bouton « Redémarrer » apparaît quand une mise à jour est prête.</p></div>
+        </details>
+        <details class="reveal" style="--i:5">
+          <summary>Et sur Mac ou sur mobile ?</summary>
+          <div class="faq-body"><p>Pour l'instant, Voksy est disponible sur Windows 10 et 11 uniquement.</p></div>
+        </details>
+        <details class="reveal" style="--i:6">
+          <summary>Comment désinstaller Voksy ?</summary>
+          <div class="faq-body"><p>Paramètres Windows › Applications › Voksy › Désinstaller. Tes favoris et réglages restent sur ton PC si tu le réinstalles plus tard.</p></div>
+        </details>
+        <details class="reveal" style="--i:6">
+          <summary>Quelles données Voksy garde-t-il ?</summary>
+          <div class="faq-body"><p>Tes favoris, réglages, statistiques et captures restent sur ton PC. Seuls ton profil, tes amis et tes messages Voksy passent par notre serveur. Tout est expliqué dans la <a href="confidentialite.html">politique de confidentialité</a>.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ Appel final ============ -->
+    <section class="final reveal">
+      <div class="final-art" aria-hidden="true"><div class="v3d small" id="v3d-small"><div class="v3d-inner"></div></div></div>
+      <h2>Prêt à jouer ?</h2>
+      <p>Installe Voksy en moins d'une minute.</p>
+      <a class="btn btn-primary btn-xl magnetic" data-download href="https://github.com/MelZze/voksy-releases/releases">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+        <span class="btn-text"><b>Télécharger Voksy</b><small data-release-meta>Windows 10 et 11 · Gratuit</small></span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="brand">
+      <svg class="logo" viewBox="100 240 824 544" aria-hidden="true"><polygon points="108,248 330,248 523,583 413,775" /><polygon points="696,248 916,248 611,775 488,775 592,596 543,511" /></svg>
+      <span>Voksy</span>
+    </div>
+    <p>Voksy n'est ni affilié ni approuvé par Roblox Corporation. Roblox est une marque de Roblox Corporation.</p>
+    <a href="confidentialite.html">Confidentialité</a>
+    <a href="conditions.html">Conditions d'utilisation</a>
+    <a href="https://github.com/MelZze/voksy-releases/releases" target="_blank" rel="noopener">Versions sur GitHub</a>
+  </footer>
+
+  <!-- Après le clic sur Télécharger -->
+  <dialog class="dl-modal" id="dl-modal" aria-labelledby="dl-title">
+    <button class="icon-btn dl-close" type="button" data-close aria-label="Fermer"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="dl-head">
+      <span class="dl-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg></span>
+      <h3 id="dl-title">Ton téléchargement commence</h3>
+      <p id="dl-sub">Plus que trois étapes.</p>
+    </div>
+    <ol class="dl-steps">
+      <li style="--i:0"><b>Ouvre <span id="dl-file">l'installateur</span></b><span>Dans tes téléchargements, ou en bas de ton navigateur.</span></li>
+      <li style="--i:1"><b>Windows te prévient ?</b><span>Clique sur « Informations complémentaires », puis « Exécuter quand même ». Voksy n'est pas encore signé, c'est normal.</span></li>
+      <li style="--i:2"><b>Suis l'installation</b><span>Voksy se lance tout seul à la fin. Bon jeu !</span></li>
+    </ol>
+    <p class="dl-retry">Le téléchargement ne démarre pas ? <a id="dl-retry" href="https://github.com/MelZze/voksy-releases/releases">Clique ici</a>.</p>
+  </dialog>
+
+  <script src="main.js" type="module"></script>
+</body>
+</html>

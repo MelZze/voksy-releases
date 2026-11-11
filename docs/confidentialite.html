@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Confidentialité · Voksy</title>
+  <meta name="description" content="Ce que Voksy collecte, pourquoi, et comment le supprimer." />
+  <meta name="theme-color" content="#0e1116" />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="legal.css" />
+</head>
+<body data-title-fr="Confidentialité · Voksy" data-title-en="Privacy Policy · Voksy">
+  <header class="legal-nav">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="100 240 824 544" aria-hidden="true"><polygon points="108,248 330,248 523,583 413,775" /><polygon points="696,248 916,248 611,775 488,775 592,596 543,511" /></svg>
+      <span>Voksy</span>
+    </a>
+    <nav class="lang-switch" aria-label="Langue / Language">
+      <a href="#fr" aria-current="true">FR</a>
+      <a href="#en" aria-current="false">EN</a>
+    </nav>
+  </header>
+
+  <!-- ===================== FRANÇAIS ===================== -->
+  <main class="legal" data-lang="fr" lang="fr">
+    <h1>Politique de confidentialité</h1>
+    <p class="updated">Dernière mise à jour : 11 novembre 2026</p>
+
+    <div class="summary">
+      <p>En bref</p>
+      <ul>
+        <li>Voksy ne voit jamais ton mot de passe Roblox ni ton cookie de connexion.</li>
+        <li>La connexion Roblox sert seulement à prouver que ton compte est bien à toi.</li>
+        <li>Tes favoris, réglages et captures restent sur ton PC.</li>
+        <li>Seules les fonctions sociales (amis, chat, profil) passent par notre serveur.</li>
+        <li>Pas de publicité ciblée, pas de revente de données, pas de traceur.</li>
+      </ul>
+    </div>
+
+    <h2>1. Qui sommes-nous</h2>
+    <p>Voksy est un lanceur Roblox gratuit pour Windows, développé par un créateur indépendant (MelZze). Voksy n'est ni affilié ni approuvé par Roblox Corporation.</p>
+
+    <h2>2. Ce qui reste sur ton PC</h2>
+    <p>La plupart de Voksy fonctionne sans compte. Ces données sont enregistrées uniquement sur ton ordinateur (dossier <code>%APPDATA%\voksy</code>) et ne nous sont jamais envoyées :</p>
+    <ul>
+      <li>tes favoris, ton historique de parties et tes réglages (thème, musique, raccourcis, FastFlags…) ;</li>
+      <li>la liste de tes captures Roblox, lues dans les dossiers de Roblox et d'Images de ton PC ;</li>
+      <li>le jeton de session Voksy si tu te connectes (voir plus bas).</li>
+    </ul>
+
+    <h2>3. La connexion avec Roblox</h2>
+    <p>Pour utiliser les amis et le chat Voksy, tu peux te connecter avec <strong>la connexion officielle de Roblox (OAuth 2.0)</strong>. Tu te connectes sur le site de Roblox, pas dans Voksy. Nous demandons seulement les autorisations <strong>openid</strong> et <strong>profile</strong>, qui nous donnent :</p>
+    <ul>
+      <li>ton identifiant Roblox (ID utilisateur) ;</li>
+      <li>ton nom d'utilisateur et ton nom d'affichage ;</li>
+      <li>ton image de profil et l'indication « compte vérifié ».</li>
+    </ul>
+    <p>Le jeton d'accès fourni par Roblox sert une seule fois, pour lire ces informations, puis il est jeté. <strong>Nous ne le gardons pas</strong> et nous n'avons aucun accès à ton compte Roblox : pas d'achats, pas de messages Roblox, pas de modification de ton compte.</p>
+
+    <h2>4. Ce que notre serveur enregistre</h2>
+    <p>Si tu te connectes, notre serveur (hébergé chez Cloudflare) garde :</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Donnée</th><th>Pourquoi</th></tr>
+        <tr><td>ID, noms et image Roblox</td><td>T'identifier et t'afficher auprès de tes amis Voksy</td></tr>
+        <tr><td>Profil Voksy (bio, statut, bannière, cadre, jeu préféré…)</td><td>Ce que tu choisis de montrer à tes amis</td></tr>
+        <tr><td>Amis et demandes d'amis Voksy</td><td>Faire fonctionner ta liste d'amis</td></tr>
+        <tr><td>Messages et groupes du chat Voksy</td><td>Afficher tes conversations sur tous tes appareils</td></tr>
+        <tr><td>En ligne / en jeu, et le jeu en cours</td><td>Montrer à tes amis si tu joues et à quoi (seulement pendant que Voksy est ouvert, rien n'est archivé)</td></tr>
+        <tr><td>Date de création du compte et de dernière connexion</td><td>Afficher « vu il y a… » et les badges</td></tr>
+        <tr><td>Jeton de session (gardé seulement sous forme d'empreinte SHA-256)</td><td>Te garder connecté</td></tr>
+      </table>
+    </div>
+    <p>Ces informations ne sont visibles que par toi et par les personnes que tu as ajoutées en amis (ton nom et ton image restent visibles par quelqu'un qui te cherche pour t'ajouter).</p>
+
+    <h2>5. Les services utilisés</h2>
+    <ul>
+      <li><strong>Roblox</strong> : connexion, et API publiques de Roblox pour les noms, icônes et infos des jeux.</li>
+      <li><strong>Cloudflare</strong> : hébergement du serveur social.</li>
+      <li><strong>GitHub</strong> : téléchargement de Voksy et des mises à jour.</li>
+      <li><strong>Discord</strong> (si tu l'actives) : Voksy affiche ton jeu en cours sur ton statut Discord, directement depuis ton PC.</li>
+      <li><strong>Stripe</strong> (seulement pour les créateurs qui sponsorisent un jeu) : le paiement se fait sur la page de Stripe. Nous ne voyons jamais ton numéro de carte.</li>
+    </ul>
+    <p>Nous ne vendons, ne louons et ne partageons tes données avec personne, et Voksy ne contient ni publicité ciblée ni outil de suivi.</p>
+
+    <h2>6. Combien de temps</h2>
+    <p>Tes données sur le serveur sont gardées tant que ton compte Voksy existe. Les messages d'un groupe sont effacés quand le groupe est supprimé. Les tentatives de connexion inachevées sont effacées au bout de 10 minutes.</p>
+
+    <h2>7. Tes droits et la suppression</h2>
+    <p>Tu peux à tout moment :</p>
+    <ul>
+      <li>te déconnecter dans Voksy (Réglages › Social), ce qui supprime ta session du serveur ;</li>
+      <li>retirer l'accès de Voksy dans Roblox : <a href="https://www.roblox.com/my/account#!/security" target="_blank" rel="noopener">Paramètres Roblox › Sécurité › Applications autorisées</a> ;</li>
+      <li>demander une copie ou la <strong>suppression complète</strong> de tes données en ouvrant une demande sur <a href="https://github.com/MelZze/voksy-releases/issues" target="_blank" rel="noopener">github.com/MelZze/voksy-releases/issues</a>. Nous répondons sous 30 jours.</li>
+    </ul>
+    <p>Pour effacer les données de ton PC, désinstalle Voksy puis supprime le dossier <code>%APPDATA%\voksy</code>.</p>
+
+    <h2>8. Âge</h2>
+    <p>Les fonctions sociales de Voksy demandent la connexion Roblox, que Roblox réserve aux comptes de 13 ans et plus. Si tu as moins de l'âge requis dans ton pays, demande l'accord d'un parent.</p>
+
+    <h2>9. Changements</h2>
+    <p>Si cette politique change, la date en haut de la page est mise à jour et les changements importants sont annoncés dans les nouveautés de Voksy.</p>
+  </main>
+
+  <!-- ===================== ENGLISH ===================== -->
+  <main class="legal" data-lang="en" lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: November 11, 2026</p>
+
+    <div class="summary">
+      <p>In short</p>
+      <ul>
+        <li>Voksy never sees your Roblox password or login cookie.</li>
+        <li>Sign in with Roblox is only used to prove that your account is yours.</li>
+        <li>Your favorites, settings and screenshots stay on your PC.</li>
+        <li>Only the social features (friends, chat, profile) go through our server.</li>
+        <li>No targeted ads, no selling of data, no trackers.</li>
+      </ul>
+    </div>
+
+    <h2>1. Who we are</h2>
+    <p>Voksy is a free Roblox launcher for Windows, made by an independent developer (MelZze). Voksy is not affiliated with or endorsed by Roblox Corporation.</p>
+
+    <h2>2. What stays on your PC</h2>
+    <p>Most of Voksy works without an account. This data is stored only on your computer (<code>%APPDATA%\voksy</code>) and is never sent to us:</p>
+    <ul>
+      <li>your favorites, play history and settings (theme, music, hotkeys, FastFlags…);</li>
+      <li>the list of your Roblox screenshots, read from Roblox's and Pictures folders on your PC;</li>
+      <li>your Voksy session token if you sign in (see below).</li>
+    </ul>
+
+    <h2>3. Sign in with Roblox</h2>
+    <p>To use Voksy friends and chat, you can sign in with <strong>Roblox's official sign-in (OAuth 2.0)</strong>. You sign in on Roblox's website, not inside Voksy. We only request the <strong>openid</strong> and <strong>profile</strong> scopes, which give us:</p>
+    <ul>
+      <li>your Roblox user ID;</li>
+      <li>your username and display name;</li>
+      <li>your profile picture and verified-badge status.</li>
+    </ul>
+    <p>The access token issued by Roblox is used once to read this information, then discarded. <strong>We do not store it</strong> and we have no access to your Roblox account: no purchases, no Roblox messages, no account changes.</p>
+
+    <h2>4. What our server stores</h2>
+    <p>If you sign in, our server (hosted on Cloudflare) keeps:</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Data</th><th>Why</th></tr>
+        <tr><td>Roblox ID, names and picture</td><td>Identify you and show you to your Voksy friends</td></tr>
+        <tr><td>Voksy profile (bio, status, banner, frame, favorite game…)</td><td>What you choose to show your friends</td></tr>
+        <tr><td>Voksy friends and friend requests</td><td>Run your friends list</td></tr>
+        <tr><td>Voksy chat messages and groups</td><td>Show your conversations on all your devices</td></tr>
+        <tr><td>Online / in-game status and current game</td><td>Show your friends whether you are playing and what (only while Voksy is open, nothing is archived)</td></tr>
+        <tr><td>Account creation and last-seen dates</td><td>Show "last seen…" and badges</td></tr>
+        <tr><td>Session token (stored hashed with SHA-256)</td><td>Keep you signed in</td></tr>
+      </table>
+    </div>
+    <p>This information is only visible to you and to the people you added as friends (your name and picture remain visible to someone searching for you to add you).</p>
+
+    <h2>5. Services we use</h2>
+    <ul>
+      <li><strong>Roblox</strong>: sign-in, and Roblox public APIs for game names, icons and details.</li>
+      <li><strong>Cloudflare</strong>: hosting of the social server.</li>
+      <li><strong>GitHub</strong>: downloads of Voksy and its updates.</li>
+      <li><strong>Discord</strong> (if you turn it on): Voksy shows your current game on your Discord status, directly from your PC.</li>
+      <li><strong>Stripe</strong> (only for creators who sponsor a game): payment happens on Stripe's page. We never see your card number.</li>
+    </ul>
+    <p>We do not sell, rent or share your data with anyone, and Voksy contains no targeted ads or tracking tools.</p>
+
+    <h2>6. Retention</h2>
+    <p>Your server data is kept as long as your Voksy account exists. Group messages are erased when the group is deleted. Unfinished sign-in attempts are erased after 10 minutes.</p>
+
+    <h2>7. Your rights and deletion</h2>
+    <p>At any time you can:</p>
+    <ul>
+      <li>sign out in Voksy (Settings › Social), which removes your session from the server;</li>
+      <li>revoke Voksy's access in Roblox: <a href="https://www.roblox.com/my/account#!/security" target="_blank" rel="noopener">Roblox Settings › Security › Authorized Apps</a>;</li>
+      <li>request a copy or the <strong>complete deletion</strong> of your data by opening a request at <a href="https://github.com/MelZze/voksy-releases/issues" target="_blank" rel="noopener">github.com/MelZze/voksy-releases/issues</a>. We answer within 30 days.</li>
+    </ul>
+    <p>To erase the data on your PC, uninstall Voksy and delete the <code>%APPDATA%\voksy</code> folder.</p>
+
+    <h2>8. Age</h2>
+    <p>Voksy's social features require Sign in with Roblox, which Roblox limits to accounts aged 13 and over. If you are under the required age in your country, ask a parent for permission.</p>
+
+    <h2>9. Changes</h2>
+    <p>If this policy changes, the date at the top of this page is updated and important changes are announced in Voksy's release notes.</p>
+  </main>
+
+  <footer class="legal-foot">
+    <a href="index.html">Voksy</a>
+    <a href="conditions.html">Conditions d'utilisation · Terms of Service</a>
+    <span>Voksy n'est pas affilié à Roblox Corporation · Not affiliated with Roblox Corporation</span>
+  </footer>
+  <script src="legal.js"></script>
+</body>
+</html>
