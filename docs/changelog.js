@@ -3,6 +3,14 @@
 // kind : 'new' (Nouveau), 'better' (Amélioré), 'fix' (Corrigé)
 export const CHANGELOG = [
   {
+    version: '0.12.2',
+    date: '2026-11-12',
+    title: 'Nouveau V au démarrage',
+    items: [
+      ['better', "Écran de démarrage : le V de Voksy est maintenant un vrai V plein en 3D (comme sur le site), qui arrive en tournant et se balance pendant le chargement, aux couleurs de ton thème."],
+    ],
+  },
+  {
     version: '0.12.1',
     date: '2026-11-12',
     title: 'Badges plus discrets',
