@@ -3,6 +3,15 @@
 // kind : 'new' (Nouveau), 'better' (Amélioré), 'fix' (Corrigé)
 export const CHANGELOG = [
   {
+    version: '0.12.1',
+    date: '2026-11-12',
+    title: 'Badges plus discrets',
+    items: [
+      ['better', "Les badges (Dev, Vérifié, Premium, Pionnier) s'affichent en petites icônes à côté du pseudo sur la carte de profil, à la place des étiquettes sous l'avatar."],
+      ['new', "Passe la souris sur un badge pour voir son nom et ce qu'il veut dire, sur la carte de profil comme dans la liste d'amis."],
+    ],
+  },
+  {
     version: '0.12.0',
     date: '2026-11-11',
     title: 'Trois nouveaux plugins',
